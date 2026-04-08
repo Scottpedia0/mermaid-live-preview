@@ -214,11 +214,11 @@ Future extensions if V1 works:
 ## Status
 
 Current canonical implementation:
-- `/Users/scottmoran/brain/projects/infra/diagram-preview-tool/cloud-pass-3`
-- matching docs: `/Users/scottmoran/brain/projects/infra/diagram-preview-tool/cloud-pass-3/README.md`
+- `https://github.com/Scottpedia0/mermaid-live-preview/tree/main/cloud-pass-3`
+- matching docs: `https://github.com/Scottpedia0/mermaid-live-preview/tree/main/cloud-pass-3/README.md`
 
 Legacy variants are archived for context:
-- `/Users/scottmoran/brain/projects/infra/diagram-preview-tool/archive/extension`
-- `/Users/scottmoran/brain/projects/infra/diagram-preview-tool/archive/cloud-pass-2`
+- `https://github.com/Scottpedia0/mermaid-live-preview/tree/main/archive/extension`
+- `https://github.com/Scottpedia0/mermaid-live-preview/tree/main/archive/cloud-pass-2`
 
 This spec should be treated as live operational truth for V1 behavior.

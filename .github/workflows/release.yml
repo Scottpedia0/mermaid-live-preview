@@ -3,7 +3,7 @@ name: Release VS Code Extension
 on:
   push:
     tags:
-      - "v*"
+      - 'v*'
 
 permissions:
   contents: write
@@ -12,6 +12,9 @@ jobs:
   release:
     name: Build, package, publish
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cloud-pass-3
     steps:
       - uses: actions/checkout@v4
 
@@ -22,33 +25,32 @@ jobs:
           cache-dependency-path: cloud-pass-3/package-lock.json
 
       - name: Install dependencies
-        working-directory: cloud-pass-3
         run: npm ci
 
       - name: Build extension
-        working-directory: cloud-pass-3
         run: npm run build
 
       - name: Package .vsix
         id: package
-        working-directory: cloud-pass-3
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          mkdir -p ./artifacts
-          npx @vscode/vsce package --no-dependencies --out ./artifacts
-          echo "package_version=$VERSION" >> "$GITHUB_OUTPUT"
+          mkdir -p /tmp/artifacts
+          npx @vscode/vsce package --no-dependencies --out /tmp/artifacts
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Publish to VS Code Marketplace
-        if: ${{ secrets.VSCE_PAT != '' }}
         env:
           VSCE_PAT: ${{ secrets.VSCE_PAT }}
-        working-directory: cloud-pass-3
         run: |
-          VSIX_FILE="artifacts/diagram-preview-tool-${{ steps.package.outputs.package_version }}.vsix"
-          npx @vscode/vsce publish --packagePath "$VSIX_FILE"
+          VSIX_FILE="/tmp/artifacts/diagram-preview-tool-${{ steps.package.outputs.version }}.vsix"
+          if [ -n "${VSCE_PAT}" ]; then
+            npx @vscode/vsce publish --packagePath "$VSIX_FILE"
+          else
+            echo "::warning::VSCE_PAT is not set. Skipping Marketplace publish."
+          fi
 
       - name: Attach .vsix to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: cloud-pass-3/artifacts/diagram-preview-tool-${{ steps.package.outputs.package_version }}.vsix
+          files: /tmp/artifacts/diagram-preview-tool-${{ steps.package.outputs.version }}.vsix
           generate_release_notes: true

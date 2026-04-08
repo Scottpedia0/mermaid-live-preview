@@ -1,8 +1,8 @@
 {
-  "name": "mermaid-live-preview-4ai",
-  "displayName": "Mermaid Live Preview 4AI",
+  "name": "mermaid-live-preview-ai",
+  "displayName": "Mermaid Live Preview AI",
   "description": "Preview Mermaid diagrams from Markdown in a fast loop for AI-human collaboration with Markdown as the shared source of truth.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "scottmoran",
   "repository": {
     "type": "git",

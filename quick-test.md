@@ -1,11 +1,13 @@
 # Mermaid Live Preview — quick verification flow
 
+![Expected flow: Mermaid edits and live preview side by side](assets/mermaid-live-preview-loop.png)
+
 Use this when you want to verify the extension behavior by clicking, not by running terminal commands.
 
 ## 1) Install extension (preferred)
 
 1. Open Extensions in VS Code (`Cmd/Ctrl+Shift+X`).
-2. Search for **Mermaid Live Preview 4AI** and install it from Marketplace.
+2. Search for **Mermaid Live Preview AI** and install it from Marketplace.
 3. If using a local test build, use Developer/Unpacked flow below instead.
 
 ## 2) Test file (shared)
@@ -24,8 +26,8 @@ Open this Markdown file for verification:
 
 ## 4) If you just published a new version
 
-1. Go to Extensions in VS Code and search `Mermaid Live Preview 4AI`.
-2. Confirm the installed version is `0.1.4` (or your latest tag).
+1. Go to Extensions in VS Code and search `Mermaid Live Preview AI`.
+2. Confirm the installed version is `0.1.5` (or your latest tag).
 3. Open `test-diagram.md` and run the flow above.
 
 If the marketplace page says `Verifying` after upload:

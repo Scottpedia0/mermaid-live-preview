@@ -4,11 +4,10 @@
 
 Use this when you want to verify the extension behavior by clicking, not by running terminal commands.
 
-## 1) Install extension (preferred)
+## 1) Install extension
 
 1. Open Extensions in VS Code (`Cmd/Ctrl+Shift+X`).
 2. Search for **Mermaid Live Preview AI** and install it from Marketplace.
-3. If using a local test build, use Developer/Unpacked flow below instead.
 
 ## 2) Test file (shared)
 
@@ -34,16 +33,5 @@ If the marketplace page says `Verifying` after upload:
 - It usually settles in a few minutes.
 - The extension can still become available after verification completes.
 - If status is still not done after ~10 minutes, return to the extension publish page and check the exact error text; I can patch any metadata issue immediately.
-
-## Developer-only install (optional)
-
-If you are testing a local build:
-1. Open Extensions (`Cmd/Ctrl+Shift+X`) → `...` → **Install from VSIX...**
-2. Pick the `.vsix` file for the version you just built.
-
-Note:
-- `.vsix` is a binary package, so opening it in editor shows unsupported encoding.
-- VSIX install is a one-time install for your local profile and is not the normal user update path.
-- Marketplace users get updates automatically from Marketplace.
 
 If behavior still looks wrong after this flow, use this doc again and I’ll patch the next iteration directly.

@@ -1,6 +1,6 @@
 # Mermaid Live Preview — quick verification flow
 
-![Expected flow: Mermaid edits and live preview side by side](assets/mermaid-live-preview-loop.png)
+![Expected flow: Mermaid edits and live preview inside VS Code (5:32 PM)](assets/mermaid-live-preview-loop.png)
 
 Use this when you want to verify the extension behavior by clicking, not by running terminal commands.
 

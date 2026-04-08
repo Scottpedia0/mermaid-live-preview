@@ -1,5 +1,7 @@
 # Mermaid Live Preview AI
 
+![Mermaid live preview in VS Code (5:32 PM)](../assets/mermaid-live-preview-loop.png)
+
 ## What this does
 
 This extension renders Mermaid diagrams from Markdown files as live visual previews inside VS Code. While you edit the Mermaid block in your Markdown file, the rendered diagram updates in real time. You never leave the Markdown file. The diagram and the text stay side by side.

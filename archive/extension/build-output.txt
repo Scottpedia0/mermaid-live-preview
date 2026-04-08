@@ -1,0 +1,87 @@
+[0m
+> build · openai/gpt-5.4
+[0m
+[0m# [0mTodos
+[ ] Inspect workspace and identify existing files
+[ ] Scaffold VS Code extension files and config
+[ ] Implement markdown Mermaid block preview/edit webview flow
+[ ] Add README install/test instructions
+[ ] Write concise completion summary to COMPLETION.md
+[0m
+[0m✱ [0mGlob "**/*"[90m in . · 3 matches[0m
+[0m
+[0m# [0mTodos
+[x] Inspect workspace and identify existing files
+[ ] Scaffold VS Code extension files and config
+[ ] Implement markdown Mermaid block preview/edit webview flow
+[ ] Add README install/test instructions
+[ ] Write concise completion summary to COMPLETION.md
+[0m
+[0m⚙ [0mapply_patch Success. Updated the following files:
+A home/ubuntu/opencode-work/diagram-preview-tool-build/package.json
+A home/ubuntu/opencode-work/diagram-preview-tool-build/tsconfig.json
+A home/ubuntu/opencode-work/diagram-preview-tool-build/.vscodeignore
+A home/ubuntu/opencode-work/diagram-preview-tool-build/src/extension.ts
+A home/ubuntu/opencode-work/diagram-preview-tool-build/README.md
+A home/ubuntu/opencode-work/diagram-preview-tool-build/COMPLETION.md
+[0m
+[0m$ [0mls
+COMPLETION.md
+README.md
+SPEC.md
+build-brief.md
+build-output.txt
+package.json
+src
+tsconfig.json
+[0m
+[0m# [0mTodos
+[x] Inspect workspace and identify existing files
+[x] Scaffold VS Code extension files and config
+[ ] Implement markdown Mermaid block preview/edit webview flow
+[ ] Add README install/test instructions
+[ ] Write concise completion summary to COMPLETION.md
+[0m
+[0m$ [0mnpm install
+added 2 packages, and audited 3 packages in 1s
+
+found 0 vulnerabilities
+[0m
+[0m$ [0mnpm run build
+> diagram-preview-tool@0.0.1 build
+> tsc -p ./
+[0m
+[0m# [0mTodos
+[x] Inspect workspace and identify existing files
+[x] Scaffold VS Code extension files and config
+[x] Implement markdown Mermaid block preview/edit webview flow
+[x] Add README install/test instructions
+[x] Write concise completion summary to COMPLETION.md
+[0m
+Built the VS Code extension MVP directly in this workspace and kept the Markdown Mermaid block as the only persisted source of truth.
+
+- Added the extension scaffold and command wiring in `package.json`, with TypeScript build config in `tsconfig.json`
+- Implemented the core flow in `src/extension.ts`: detect the Mermaid block under the cursor, open a side-by-side webview, live-render Mermaid, refresh from Markdown changes, and apply edits back into the original fenced block
+- Added a minimal but usable webview editor/preview experience with wide-screen friendly layout, local editing, and explicit `Apply to Markdown`
+- Wrote install/run instructions in `README.md`
+- Wrote the requested completion note in `COMPLETION.md`
+
+Verified:
+- Ran `npm install`
+- Ran `npm run build`
+- TypeScript compilation completed successfully
+
+Key files:
+- `package.json`
+- `src/extension.ts`
+- `README.md`
+- `COMPLETION.md`
+
+A couple of implementation notes:
+- The preview uses Mermaid from `jsdelivr` inside the VS Code webview for the smallest installable MVP
+- V1 opens one Mermaid block at a time and tracks file edits so the preview stays synced if the Markdown source changes
+
+Natural next steps if you want them:
+1. Add VS Code packaging support with `vsce` so you can install a `.vsix`
+2. Add block navigation when a file contains multiple Mermaid fences
+3. Replace CDN Mermaid with a bundled local asset for fully offline use

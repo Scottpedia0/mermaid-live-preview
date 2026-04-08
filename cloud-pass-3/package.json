@@ -1,0 +1,62 @@
+{
+  "name": "diagram-preview-tool",
+  "displayName": "Mermaid Live Preview",
+  "description": "Preview Mermaid diagrams from Markdown in a fast loop for AI-human collaboration with Markdown as the shared source of truth.",
+  "version": "0.1.0",
+  "publisher": "scottmoran",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Scottpedia0/mermaid-live-preview.git"
+  },
+  "homepage": "https://github.com/Scottpedia0/mermaid-live-preview",
+  "bugs": {
+    "url": "https://github.com/Scottpedia0/mermaid-live-preview/issues"
+  },
+  "license": "MIT",
+  "icon": "resources/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:diagramPreview.openMermaidPreview",
+    "onCommand:diagramPreview.openMermaidBlockUnderCursor",
+    "onCommand:diagramPreview.revealBlockInMarkdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "diagramPreview.openMermaidPreview",
+        "title": "Open Mermaid Preview"
+      },
+      {
+        "command": "diagramPreview.openMermaidBlockUnderCursor",
+        "title": "Open Mermaid Block Under Cursor"
+      },
+      {
+        "command": "diagramPreview.revealBlockInMarkdown",
+        "title": "Reveal Block in Markdown"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "diagramPreview.openMermaidBlockUnderCursor",
+          "when": "editorLangId == markdown",
+          "group": "navigation@10"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -w -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.5"
+  }
+}

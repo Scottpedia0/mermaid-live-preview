@@ -1,0 +1,58 @@
+{
+  "name": "diagram-preview-tool",
+  "displayName": "Diagram Preview Tool",
+  "description": "Preview and edit Mermaid blocks in Markdown with the source file as the single source of truth.",
+  "version": "0.0.1",
+  "publisher": "local",
+  "private": true,
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:diagramPreview.openMermaidPreview",
+    "onCommand:diagramPreview.openMermaidBlockUnderCursor",
+    "onCommand:diagramPreview.refreshMermaidPreview",
+    "onCommand:diagramPreview.applyMermaidEditsToMarkdown"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "diagramPreview.openMermaidPreview",
+        "title": "Open Mermaid Preview"
+      },
+      {
+        "command": "diagramPreview.openMermaidBlockUnderCursor",
+        "title": "Open Mermaid Block Under Cursor"
+      },
+      {
+        "command": "diagramPreview.refreshMermaidPreview",
+        "title": "Refresh Mermaid Preview"
+      },
+      {
+        "command": "diagramPreview.applyMermaidEditsToMarkdown",
+        "title": "Apply Mermaid Edits To Markdown"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "diagramPreview.openMermaidBlockUnderCursor",
+          "when": "editorLangId == markdown",
+          "group": "navigation@10"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -w -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.5"
+  }
+}

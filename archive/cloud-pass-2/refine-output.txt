@@ -1,0 +1,72 @@
+[0m
+> build · openai/gpt-5.4
+[0m
+[0m# [0mTodos
+[ ] Inspect extension structure and current preview workflow
+[ ] Implement preview-first layout and larger default diagram view
+[ ] Improve Mermaid block targeting from cursor/nearby selection
+[ ] Update docs including README if needed and add PASS2.md
+[ ] Rebuild extension successfully and verify output
+[0m
+[0m✱ [0mGlob "**/*"[90m in . · 100 matches[0m
+[0m✱ [0mGrep "mermaid|webview|preview|panel|markdown"[90m in . · 343 matches[0m
+[0m→ [0mRead src/extension.ts[90m [offset=1, limit=400][0m
+[0m→ [0mRead README.md[90m [offset=1, limit=260][0m
+[0m→ [0mRead package.json[90m [offset=1, limit=220][0m
+[0m→ [0mRead src/extension.ts[90m [offset=401, limit=320][0m
+[0m
+[0m# [0mTodos
+[x] Inspect extension structure and current preview workflow
+[ ] Implement preview-first layout and larger default diagram view
+[ ] Improve Mermaid block targeting from cursor/nearby selection
+[ ] Update docs including README if needed and add PASS2.md
+[ ] Rebuild extension successfully and verify output
+[0m
+[0m⚙ [0mapply_patch Success. Updated the following files:
+M home/ubuntu/opencode-work/diagram-preview-tool-build/src/extension.ts
+[0m✱ [0mGrep "source-panel|preview-panel|contentLayout|preview-first"[90m in src · 3 matches[0m
+[0m→ [0mRead src/extension.ts[90m [offset=430, limit=220][0m
+[0m⚙ [0mapply_patch Success. Updated the following files:
+M home/ubuntu/opencode-work/diagram-preview-tool-build/src/extension.ts
+[0m
+[0m# [0mTodos
+[x] Inspect extension structure and current preview workflow
+[x] Implement preview-first layout and larger default diagram view
+[x] Improve Mermaid block targeting from cursor/nearby selection
+[ ] Update docs including README if needed and add PASS2.md
+[ ] Rebuild extension successfully and verify output
+[0m
+[0m⚙ [0mapply_patch Success. Updated the following files:
+M home/ubuntu/opencode-work/diagram-preview-tool-build/README.md
+A home/ubuntu/opencode-work/diagram-preview-tool-build/PASS2.md
+[0m
+[0m# [0mTodos
+[x] Inspect extension structure and current preview workflow
+[x] Implement preview-first layout and larger default diagram view
+[x] Improve Mermaid block targeting from cursor/nearby selection
+[x] Update docs including README if needed and add PASS2.md
+[ ] Rebuild extension successfully and verify output
+[0m
+[0m$ [0mnpm run build
+> diagram-preview-tool@0.0.1 build
+> tsc -p ./
+[0m
+[0m# [0mTodos
+[x] Inspect extension structure and current preview workflow
+[x] Implement preview-first layout and larger default diagram view
+[x] Improve Mermaid block targeting from cursor/nearby selection
+[x] Update docs including README if needed and add PASS2.md
+[x] Rebuild extension successfully and verify output
+[0m
+Updated the extension to make the preview the primary experience while keeping Markdown as the single source of truth. The main work is in `src/extension.ts`, where the webview now opens with the rendered diagram first, the source pane hidden by default behind a `Show Source` toggle, and the preview area sized to dominate the panel.
+
+- In `src/extension.ts`, I changed block targeting so opening works when the cursor is on the opening fence, inside the Mermaid block, across a selection overlapping the block, or within a small nearby line range if the cursor is close but not directly inside.
+- In `src/extension.ts`, I reworked the webview layout so the preview is shown first, gets a much larger default share of the space, and can fully occupy the panel when the source editor is hidden.
+- In `src/extension.ts`, I kept the optional in-panel editing path, but made it secondary: it starts hidden, can be toggled on demand, and still only writes back through `Apply to Markdown`.
+- In `README.md`, I updated the usage notes to describe the preview-first workflow and the more forgiving block targeting.
+- In `PASS2.md`, I added the requested short pass summary.
+
+Build succeeded with `npm run build`.
+
+Natural next step:
+1. Launch the extension host with `F5` in VS Code and sanity-check opening from `mermaid`, the fence line, inside a block, and a few lines near a block.

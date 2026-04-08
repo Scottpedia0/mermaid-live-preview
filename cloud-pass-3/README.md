@@ -1,4 +1,4 @@
-# Mermaid Live Preview
+# Mermaid Live Preview 4AI
 
 ## What this does
 
@@ -53,7 +53,7 @@ The editor context menu includes **Open Mermaid Block Under Cursor** when a Mark
 ## Install
 
 1. Open Extensions in VS Code (`Cmd/Ctrl+Shift+X`).
-2. Search for **Mermaid Live Preview** and install it.
+2. Search for **Mermaid Live Preview 4AI** and install it.
 3. Open a Markdown file containing a Mermaid block.
 4. Place your cursor inside or near the block and run **Open Mermaid Block Under Cursor** from the command palette or right-click menu.
 

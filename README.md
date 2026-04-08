@@ -46,13 +46,6 @@ a node -- but it should not contradict the text.
 
 This is not a diagramming app. You do not draw diagrams in this tool. You write Markdown, Mermaid blocks render live, and you confirm the logic visually. The Markdown is the authoring surface. The preview is the QA surface.
 
-## Project structure
-
-- **`cloud-pass-3/`** -- active implementation. This is the extension.
-- **`archive/`** -- legacy variants, kept for historical reference only.
-
-For current development, open and work in `cloud-pass-3/` only.
-
 ## Local build (contributors and development)
 
 1. Open `cloud-pass-3/` in VS Code.
@@ -73,9 +66,12 @@ npm run build
 
 ## Release
 
+Mermaid Live Preview is distributed as a VS Code extension (not a web page link):
+
+- Marketplace install and updates are the user path.
+- Public repo is for source, forks, and reviews.
 - Package metadata: `cloud-pass-3/package.json`
 - Release cadence: push tag `v*` to trigger packaging and publish.
-- Marketplace install and updates are the supported user path.
 
 ## Current non-goals
 

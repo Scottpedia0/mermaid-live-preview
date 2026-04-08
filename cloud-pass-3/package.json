@@ -2,7 +2,7 @@
   "name": "diagram-preview-tool",
   "displayName": "Mermaid Live Preview",
   "description": "Preview Mermaid diagrams from Markdown in a fast loop for AI-human collaboration with Markdown as the shared source of truth.",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "publisher": "scottmoran",
   "repository": {
     "type": "git",
